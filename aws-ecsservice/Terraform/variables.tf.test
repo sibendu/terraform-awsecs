@@ -17,7 +17,7 @@ variable "project" {
 }
 
 variable "environment" {
-  default = "dev"
+  default = "test"
   type    = string
 }
 
@@ -53,7 +53,7 @@ variable "memory"{
 
 
 variable "port"{
-  default = 8090
+  default = 8095
   type = number
 }
 
@@ -71,11 +71,4 @@ variable "container_image" {
   default = "sibendu/subscriptionservice"
   type = string
 }
-
-variable "certificate_arn" {
-  default = "arn:aws:acm:eu-west-1:729524366783:certificate/5d0a8ed4-cd1a-4c28-9e64-6cdbef0b252d"
-  type = string
-}
-
-
 

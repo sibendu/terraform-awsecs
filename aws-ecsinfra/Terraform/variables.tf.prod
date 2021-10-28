@@ -17,7 +17,7 @@ variable "project" {
 }
 
 variable "environment" {
-  default = "nonprod"
+  default = "prod"
   type    = string
 }
 
@@ -39,14 +39,14 @@ variable "vpc_cidr_block" {
 }
 
 variable "keypair" {
-  default     = "zip-key"
+  default     = "zip-key-pair"
   type        = string
   description = "Key Pair we use for all services with EC2"
 }
 
 
 variable "instance_type" {
-  default     = "t2.micro"  //t3.xlarge
+  default     = "t3.xlarge"  //t2.micro
   type        = string
   description = "EC2 Instance type"
 }

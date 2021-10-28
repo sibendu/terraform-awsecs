@@ -15,9 +15,10 @@ module "ecs" {
   project                       = var.project
   environment                   = var.environment
   cluster_region                = var.cluster_region
+  keypair                       = var.keypair
+  instance_type                 = var.instance_type 
+  security_group_id             = module.network.security_group_id
   public_subnet_ids             = module.network.public_subnet_ids
   vpc_id                        = module.network.vpc_id
-  keypair                       = var.keypair
-  security_group_id             = module.network.security_group_id
 }
 

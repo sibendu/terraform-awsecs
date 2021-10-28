@@ -29,7 +29,7 @@ module "vpc" {
    
   private_subnet_tags = {   
     net-type = "private"
-    Name     = "${var.project}--${var.environment}--pvt-sub"
+    Name     = "${var.project}--${var.environment}-pvt-sub"
   }
 
   public_subnet_tags = {

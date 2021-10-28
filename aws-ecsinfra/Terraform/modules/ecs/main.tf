@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "ecs_agent" {
 }
 
 resource "aws_iam_role" "ecs_agent" {
-  name               = "ecs-agent"
+  name               = "ecsAgent-${var.project}-${var.environment}"
   assume_role_policy = data.aws_iam_policy_document.ecs_agent.json
 }
 
@@ -21,7 +21,7 @@ resource "aws_iam_role_policy_attachment" "ecs_agent" {
 }
 
 resource "aws_iam_instance_profile" "ecs_agent" {
-  name = "ecs-agent"
+  name = "ecsAgent-${var.project}-${var.environment}"
   role = aws_iam_role.ecs_agent.name
 }
 
@@ -32,7 +32,7 @@ resource "aws_launch_configuration" "ziplaunchconfig" {
     iam_instance_profile = aws_iam_instance_profile.ecs_agent.name
     security_groups      = [var.security_group_id]
     user_data            = "#!/bin/bash\necho ECS_CLUSTER=${var.project}-${var.environment} >> /etc/ecs/ecs.config"
-    instance_type        = "t2.micro"
+    instance_type        = var.instance_type
 }
 
 resource "aws_autoscaling_group" "zipasg" {

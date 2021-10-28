@@ -18,3 +18,7 @@ variable "keypair" {
 variable "security_group_id" {
   description = "Security group"
 }
+
+variable "instance_type" {
+  description = "EC2 Instance Type"
+}
